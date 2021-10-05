@@ -67,6 +67,8 @@ class SalesFeed:
                 usdprice=usd_price)
 
         name = s['asset']['name']
+        if not name:
+            name = s['asset']['token_id']
         #name = twitter_sanitize(name, max_length=130)
         return template.format(
             oslink=s['asset']['permalink'],
